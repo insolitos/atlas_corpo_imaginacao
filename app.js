@@ -71,7 +71,7 @@ const navLinks = document.querySelectorAll('.nav-link');
 document.addEventListener('DOMContentLoaded', function() {
     initializeNavigation();
     initializeQuiz();
-    initializeMapaConceitual();
+    initializeMapaConceptual();
     initializeScrollAnimations();
     updateCopyrightYear();
 });
@@ -257,14 +257,14 @@ function restartQuiz() {
     displayQuestion();
 }
 
-// === MAPA CONCEITUAL ===
-function initializeMapaConceitual() {
-    const mapaContainer = document.getElementById('mapaConceitual');
+// === MAPA CONCEPTUAL ===
+function initializeMapaConceptual() {
+    const mapaContainer = document.getElementById('mapaConceptualContainer');
     const conceitoInfo = document.getElementById('conceitoInfo');
     const conceitoNome = document.getElementById('conceitoNome');
     const conceitoConexoes = document.getElementById('conceitoConexoes');
     
-    // Criar nós conceituais
+    // Criar nós conceptuais
     appData.temas_conceituais.forEach((tema, index) => {
         const node = document.createElement('div');
         node.className = 'conceito-node';
