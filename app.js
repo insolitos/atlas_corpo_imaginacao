@@ -71,8 +71,9 @@ const navLinks = document.querySelectorAll('.nav-link');
 document.addEventListener('DOMContentLoaded', function() {
     initializeNavigation();
     initializeQuiz();
-    initializeMapaConceitual();
+    initializeMapaConceptual();
     initializeScrollAnimations();
+    updateCopyrightYear();
 });
 
 // === NAVEGAÇÃO ===
@@ -122,6 +123,11 @@ function initializeNavigation() {
 function initializeQuiz() {
     displayQuestion();
     
+    const totalQuestionsSpan = document.getElementById('totalQuestions');
+    if (totalQuestionsSpan) {
+        totalQuestionsSpan.textContent = appData.quiz.length;
+    }
+
     document.getElementById('nextQuestion').addEventListener('click', nextQuestion);
     document.getElementById('restartQuiz').addEventListener('click', restartQuiz);
 }
@@ -251,14 +257,14 @@ function restartQuiz() {
     displayQuestion();
 }
 
-// === MAPA CONCEITUAL ===
-function initializeMapaConceitual() {
-    const mapaContainer = document.getElementById('mapaConceitual');
+// === MAPA CONCEPTUAL ===
+function initializeMapaConceptual() {
+    const mapaContainer = document.getElementById('mapaConceptualContainer');
     const conceitoInfo = document.getElementById('conceitoInfo');
     const conceitoNome = document.getElementById('conceitoNome');
     const conceitoConexoes = document.getElementById('conceitoConexoes');
     
-    // Criar nós conceituais
+    // Criar nós conceptuais
     appData.temas_conceituais.forEach((tema, index) => {
         const node = document.createElement('div');
         node.className = 'conceito-node';
@@ -326,17 +332,6 @@ function initializeScrollAnimations() {
 
 // === FUNCIONALIDADES EXTRAS ===
 
-// Smooth scroll para navegação interna
-function smoothScrollTo(target) {
-    const element = document.querySelector(target);
-    if (element) {
-        element.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-    }
-}
-
 // Highlight da seção ativa na navegação
 function updateActiveNavigation() {
     const sections = document.querySelectorAll('.section');
@@ -379,15 +374,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Função para copiar texto (funcionalidade extra)
-function copyToClipboard(text) {
-    navigator.clipboard.writeText(text).then(function() {
-        console.log('Texto copiado com sucesso');
-    }, function(err) {
-        console.error('Erro ao copiar texto: ', err);
-    });
-}
-
 // Easter egg: Konami Code
 let konamiCode = [];
 const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
@@ -414,39 +400,6 @@ function activateEasterEgg() {
     }, 2000);
 }
 
-// CSS para o easter egg
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes rainbow {
-        0% { filter: hue-rotate(0deg); }
-        100% { filter: hue-rotate(360deg); }
-    }
-    
-    .nav-link.active {
-        background: var(--color-primary);
-        color: var(--color-btn-primary-text);
-    }
-`;
-document.head.appendChild(style);
-
-// Função para validar formulários (se necessário no futuro)
-function validateForm(formData) {
-    const errors = [];
-    
-    if (!formData.name || formData.name.trim() === '') {
-        errors.push('Nome é obrigatório');
-    }
-    
-    if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
-        errors.push('Email válido é obrigatório');
-    }
-    
-    return {
-        isValid: errors.length === 0,
-        errors: errors
-    };
-}
-
 // Função para debug (remover em produção)
 function debugInfo() {
     console.log('Atlas do Corpo e da Imaginação - Debug Info');
@@ -458,3 +411,11 @@ function debugInfo() {
 
 // Disponibilizar função de debug globalmente
 window.debugAtlas = debugInfo;
+
+// === ATUALIZAÇÃO DINÂMICA DO ANO DE COPYRIGHT ===
+function updateCopyrightYear() {
+    const yearSpan = document.getElementById('copyrightYear');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+}

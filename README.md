@@ -18,7 +18,7 @@ The application presents information about the author, the book itself, its stru
 *   **Os Espacialistas:** Information on the art collective and their contribution.
 *   **Influential Thinkers:** Highlights key philosophers and writers whose work is discussed or relevant to the Atlas.
 *   **Interactive Quiz:** A multiple-choice quiz to test the user's knowledge about the book and its author. Includes scoring and feedback.
-*   **Interactive Conceptual Map:** Allows users to click on conceptual themes (like "Corpo", "Fragmento", "Espaço") to see their connections.
+*   **Mapa Conceptual Interativo:** Allows users to click on conceptual themes (like "Corpo", "Fragmento", "Espaço") to see their connections.
 *   **Image Gallery:** A collection of images related to the author, the book, and conceptual art.
 *   **Responsive Design:** The layout adapts to different screen sizes for accessibility on various devices.
 *   **Smooth Scrolling & Navigation:** Easy navigation through a sidebar menu with smooth scrolling effects.
