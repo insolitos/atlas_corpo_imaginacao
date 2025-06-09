@@ -1,4 +1,3 @@
-
 :root {
   /* Colors */
   --color-background: rgba(252, 252, 249, 1);
@@ -1270,4 +1269,14 @@ select.form-control {
         flex-direction: column;
         align-items: center;
     }
+}
+
+@keyframes rainbow {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+.nav-link.active {
+    background: var(--color-primary);
+    color: var(--color-btn-primary-text);
 }
