@@ -776,7 +776,7 @@ select.form-control {
 
 .nav-link {
     display: block;
-    padding: var(--space-12) var(--space-16);
+    padding: var(--space-12) var(--space-10);
     color: var(--color-text);
     text-decoration: none;
     border-radius: var(--radius-base);
